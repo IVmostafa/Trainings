@@ -1,0 +1,40 @@
+<div class="training-one">
+  <p class="training-one__title">
+    Training 1
+  </p>
+  <table class="training-one__students">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Note</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td class=students__name>{{ student.name }}</td>
+        <td class=students__note [ngSwitch]="rounding">
+          <div *ngSwitchCase="true" [ngSwitch]="filtered">
+            <p appRoundedNote [note]="student.note | roundNote:40" *ngSwitchCase="true" [filtered]="filtered">{{ student.note | roundNote:40 }}</p>
+            <p appRoundedNote [note]="student.note | roundNote:40" *ngSwitchDefault>{{ student.note | roundNote:40 }}</p>
+          </div>
+          <div *ngSwitchDefault [ngSwitch]="filtered">
+            <p appRoundedNote [note]="student.note" *ngSwitchCase="true" [filtered]="filtered">{{ student.note }}</p>
+            <p appRoundedNote [note]="student.note" *ngSwitchDefault>{{ student.note }}</p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <div class="filter">
+      <button *ngIf="false === filtered" (click)="filter()">Filter Notes</button>
+      <button *ngIf="true === filtered" (click)="filter()">Cancel Filtering</button>
+    </div>
+    <div class="round">
+      <button *ngIf="false === rounding" (click)="roundUp()">Roundup Notes</button>
+      <button *ngIf="true === rounding" (click)="roundUp()">Cancel Roundup</button>
+    </div>
+  </div>
+</div>

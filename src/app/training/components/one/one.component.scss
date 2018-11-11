@@ -1,0 +1,70 @@
+$white: white;
+$grey: darkgray;
+$gray: slategray;
+
+.training-one__title {
+  font-size: 35px;
+  text-align: center;
+}
+
+.training-one__students {
+  margin: 60px auto 0px;
+  width: 50%;
+
+  thead {
+    td:nth-child(2) {
+      text-align: center;
+    }
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      td:first-child {
+        background-color: $white;
+      }
+
+      td:nth-child(2) {
+        background-color: $grey;
+      }
+    }
+
+    tr:nth-child(even) {
+      td:first-child {
+        background-color: $grey;
+      }
+
+      td:nth-child(2) {
+        background-color: $white;
+      }
+    }
+  }
+}
+
+.students__note {
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}
+
+.footer {
+  width: fit-content;
+  margin: 30px auto 0px;
+}
+
+.round,
+.filter {
+  display: inline-block;
+  margin: 0 10px;
+
+  button {
+    width: 140px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: $gray;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
