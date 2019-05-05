@@ -1,0 +1,30 @@
+sudo: required
+
+dist: trusty
+
+language: node_js
+
+node_js:
+  - "9"
+
+cache:
+  directories:
+    - node_modules
+
+git:
+  submodules: false
+
+before_install:
+  - cp src/environments/environment.test.ts.dist src/environments/environment.ts
+  - cp src/environments/environment.test.ts.dist src/environments/environment.prod.ts
+
+install:
+  - npm install
+
+script:
+  - npm run test:single
+
+addons:
+  apt:
+    packages:
+      - google-chrome-stable
