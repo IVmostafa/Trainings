@@ -19,7 +19,7 @@ before_install:
   - cp src/environments/environment.test.ts.dist src/environments/environment.prod.ts
 
 install:
-  - npm install
+  - npm ci
 
 script:
   - npm run test:single
